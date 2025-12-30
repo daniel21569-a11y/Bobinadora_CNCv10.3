@@ -1,6 +1,6 @@
 # Bobinadora CNC v10.3
 
-![Pantalla de Inicio](docs/images/pantalla_inicio.jpg)
+![Bobinadora CNC](docs/images/bobinadora_CNC.jpg)
 
 Proyecto de Bobinadora CNC automatizada basada en **ESP32-S3** con una interfaz gráfica moderna utilizando **LVGL 9.x**. Esta solución integral permite el bobinado preciso de transformadores y bobinas de nido de abeja, ofreciendo un control total sobre parámetros como el diámetro del hilo, la velocidad y la distribución de capas.
 
@@ -67,8 +67,12 @@ Este proyecto está desarrollado bajo **PlatformIO**.
    ![Parámetros Nido de Abeja](docs/images/nido_abeja_parametros.jpg) | ![Bobinando Nido de Abeja](docs/images/nido_abaja_bobinando.jpg)
 
 ### Pasos de Operación
-1. **Homing**: Al encender, el sistema realiza un homing automático para encontrar el punto cero.
-2. **Configuración**: Selecciona el modo y ajusta los parámetros (diámetro de hilo, vueltas, ancho, etc.).
+1. **Inicio**: Al encender, el sistema muestra la pantalla de bienvenida.
+   
+   ![Pantalla de Inicio](docs/images/pantalla_inicio.jpg)
+
+2. **Homing**: El sistema realiza un homing automático para encontrar el punto cero.
+3. **Configuración**: Selecciona el modo y ajusta los parámetros (diámetro de hilo, vueltas, ancho, etc.).
    
    ![Selección de Modo](docs/images/seleccione_modo.jpg) | ![Edición de Datos](docs/images/editar_datos.jpg)
 
