@@ -1,6 +1,8 @@
 # Bobinadora CNC v10.3
 
-Proyecto de Bobinadora CNC automatizada basada en **ESP32-S3** con una interfaz gráfica moderna utilizando **LVGL 9.x**. Esta versión (10.3) está optimizada para la placa **JC4827W543** (4.3" 480x272 RGB LCD).
+Proyecto de Bobinadora CNC automatizada basada en **ESP32-S3** con una interfaz gráfica moderna utilizando **LVGL 9.x**. Esta solución integral permite el bobinado preciso de transformadores y bobinas de nido de abeja, ofreciendo un control total sobre parámetros como el diámetro del hilo, la velocidad y la distribución de capas.
+
+Esta versión (10.3) está optimizada para la placa profesional **JC4827W543** (4.3" 480x272 RGB LCD), aprovechando su potencia para gestionar una interfaz fluida y un control de motores en tiempo real de alta fidelidad.
 
 ## 🚀 Novedades v10.3
 - **Corrección de Bugs**: Solucionado el error donde las vueltas totales mostraban siempre 0.
@@ -64,4 +66,8 @@ Este proyecto está desarrollado bajo **PlatformIO**.
 4. **Inicio**: Pulsa "BOBINAR" e inicia el proceso. La pantalla mostrará progreso real, RPM y tiempo restante.
 
 ---
+---
 **Nota**: El soporte para tarjetas MicroSD (ProfileManager) está actualmente deshabilitado en esta versión para mayor estabilidad del hardware ESP32-S3.
+
+## 👥 Créditos
+- **Daniel** ([@daniel21569-a11y](https://github.com/daniel21569-a11y)) - Desarrollador y diseñador del sistema.
