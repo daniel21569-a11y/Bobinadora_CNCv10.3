@@ -69,5 +69,7 @@ Este proyecto está desarrollado bajo **PlatformIO**.
 ---
 **Nota**: El soporte para tarjetas MicroSD (ProfileManager) está actualmente deshabilitado en esta versión para mayor estabilidad del hardware ESP32-S3.
 
-## 👥 Créditos
-- **Daniel** ([@daniel21569-a11y](https://github.com/daniel21569-a11y)) - Desarrollador y diseñador del sistema.
+## 👥 Créditos y Copyright
+- **Daniel Rodriguez Gonzalez** ([@daniel21569-a11y](https://github.com/daniel21569-a11y)) - Desarrollador y diseñador principal.
+
+Copyright (c) 2025 Daniel Rodriguez Gonzalez. Todos los derechos reservados bajo la licencia GPL v3.
