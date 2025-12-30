@@ -19,6 +19,7 @@ constexpr uint8_t SDA_PIN = 19; // Pines específicos de JC4827W543
 constexpr uint8_t SCL_PIN = 20;
 constexpr uint8_t INT_PIN = 18;
 constexpr uint8_t RST_PIN = -1; // No tiene reset pin en esta placa
+constexpr uint8_t SW1_PIN = 0;  // Botón físico SW1 (IO0)
 } // namespace Touch
 
 // Configuración de Motores
@@ -334,6 +335,9 @@ struct ConfigNidoAbeja {
 // ESTRUCTURA DE ESTADO DEL SISTEMA
 // =========================================================================
 struct EstadoSistema {
+  // Estado de hardware
+  volatile uint8_t brillo_backlight = 255;
+
   // Estado principal
   EstadoBobinado estado = EstadoBobinado::LISTO;
   ModoBobinado modo = ModoBobinado::TRANSFORMADOR;

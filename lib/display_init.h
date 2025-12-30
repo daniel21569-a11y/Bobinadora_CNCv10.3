@@ -16,6 +16,11 @@
 Arduino_DataBus *bus = nullptr;
 Arduino_GFX *gfx = nullptr;
 
+// Parámetros PWM para Backlight
+const int ledc_channel = 0;
+const int ledc_freq = 5000;
+const int ledc_res = 8;
+
 /**
  * @brief Initialize the QSPI display (NV3041A 480x272)
  * @return true if successful, false otherwise
@@ -24,9 +29,10 @@ bool display_init() {
   Serial.println(
       "[Display] Iniciando configuración QSPI LCD NV3041A 480x272...");
 
-  // Configure backlight pin FIRST
-  pinMode(GFX_BL, OUTPUT);
-  digitalWrite(GFX_BL, HIGH); // Encender inicialmente (según ejemplo)
+  // Configurar PWM para Backlight
+  ledcSetup(ledc_channel, ledc_freq, ledc_res);
+  ledcAttachPin(GFX_BL, ledc_channel);
+  ledcWrite(ledc_channel, 255); // Brillo máximo inicial
 
   Serial.println("[Display] Creando bus QSPI...");
 
@@ -86,21 +92,17 @@ bool display_init() {
  * @param brightness 0-255 (0=off, 255=max)
  */
 void display_backlight(uint8_t brightness) {
-  if (brightness == 0) {
-    digitalWrite(GFX_BL, LOW);
-  } else {
-    digitalWrite(GFX_BL, HIGH);
-  }
+  ledcWrite(ledc_channel, brightness);
 }
 
 /**
  * @brief Turn backlight on
  */
-void display_backlight_on() { digitalWrite(GFX_BL, HIGH); }
+void display_backlight_on() { ledcWrite(ledc_channel, 255); }
 
 /**
  * @brief Turn backlight off
  */
-void display_backlight_off() { digitalWrite(GFX_BL, LOW); }
+void display_backlight_off() { ledcWrite(ledc_channel, 0); }
 
 #endif // DISPLAY_INIT_H

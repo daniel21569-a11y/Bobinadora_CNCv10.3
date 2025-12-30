@@ -68,6 +68,7 @@ void init_hardware() {
   pinMode(Hardware::Motor::DIR_Y_PIN, OUTPUT);
   pinMode(Hardware::Motor::ENABLE_Y_PIN, OUTPUT);
   pinMode(Hardware::Motor::LIMIT_Y_PIN, INPUT_PULLUP);
+  pinMode(Hardware::Touch::SW1_PIN, INPUT_PULLUP);
 
   // Deshabilitar motores inicialmente
   digitalWrite(Hardware::Motor::ENABLE_X_PIN, HIGH);
@@ -244,7 +245,27 @@ void my_touchpad_read(lv_indev_t *indev, lv_indev_data_t *data) {
 void ui_task(void *pvParameters) {
   Serial.println("[UI] Tarea iniciada en Core 0");
 
+  static bool ultimo_estado_sw1 = HIGH;
+
   while (1) {
+    // Control de retroiluminación con botón físico SW1
+    bool estado_actual_sw1 = digitalRead(Hardware::Touch::SW1_PIN);
+    if (estado_actual_sw1 == LOW && ultimo_estado_sw1 == HIGH) {
+      // Ciclo de brillo: 255 -> 15 -> 120 -> 255
+      if (Sistema::estado.brillo_backlight > 200)
+        Sistema::estado.brillo_backlight = 15; // Muy bajo, ideal para fotos
+      else if (Sistema::estado.brillo_backlight < 50)
+        Sistema::estado.brillo_backlight = 120; // Nivel medio-suave
+      else
+        Sistema::estado.brillo_backlight = 255; // Nivel máximo
+
+      display_backlight(Sistema::estado.brillo_backlight);
+      Serial.printf("[Hardware] Botón SW1 presionado. Brillo: %d/255\n",
+                    Sistema::estado.brillo_backlight);
+      vTaskDelay(pdMS_TO_TICKS(50)); // Debounce
+    }
+    ultimo_estado_sw1 = estado_actual_sw1;
+
     if (lvgl_ready) {
       lv_timer_handler();
     }
