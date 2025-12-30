@@ -1,5 +1,7 @@
 # Bobinadora CNC v10.3
 
+![Pantalla de Inicio](docs/images/pantalla_inicio.jpg)
+
 Proyecto de Bobinadora CNC automatizada basada en **ESP32-S3** con una interfaz gráfica moderna utilizando **LVGL 9.x**. Esta solución integral permite el bobinado preciso de transformadores y bobinas de nido de abeja, ofreciendo un control total sobre parámetros como el diámetro del hilo, la velocidad y la distribución de capas.
 
 Esta versión (10.3) está optimizada para la placa profesional **JC4827W543** (4.3" 480x272 RGB LCD), aprovechando su potencia para gestionar una interfaz fluida y un control de motores en tiempo real de alta fidelidad.
@@ -57,12 +59,23 @@ Este proyecto está desarrollado bajo **PlatformIO**.
 
 ### Modos de Bobinado
 1. **Transformador**: Bobinado tradicional capa por capa. El sistema calcula automáticamente el avance del carro basándose en el diámetro del hilo.
+   
+   ![Parámetros Transformador](docs/images/transformador_parametros.jpg) | ![Bobinando Transformador](docs/images/transformador_bobinando.jpg)
+
 2. **Nido de Abeja (Honeycomb)**: Bobinado cruzado con desfase angular, ideal para bobinas de alta frecuencia o de aire.
+   
+   ![Parámetros Nido de Abeja](docs/images/nido_abeja_parametros.jpg) | ![Bobinando Nido de Abeja](docs/images/nido_abaja_bobinando.jpg)
 
 ### Pasos de Operación
 1. **Homing**: Al encender, el sistema realiza un homing automático para encontrar el punto cero.
 2. **Configuración**: Selecciona el modo y ajusta los parámetros (diámetro de hilo, vueltas, ancho, etc.).
+   
+   ![Selección de Modo](docs/images/seleccione_modo.jpg) | ![Edición de Datos](docs/images/editar_datos.jpg)
+
 3. **Control Manual**: Puedes mover los ejes manualmente desde la pantalla de control manual para ajustar el inicio del bobinado.
+   
+   ![Control Manual](docs/images/control_manual.jpg)
+
 4. **Inicio**: Pulsa "BOBINAR" e inicia el proceso. La pantalla mostrará progreso real, RPM y tiempo restante.
 
 ---
